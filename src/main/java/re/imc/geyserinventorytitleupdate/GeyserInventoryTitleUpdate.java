@@ -57,6 +57,9 @@ public class GeyserInventoryTitleUpdate {
     }
     @Subscribe
     public void onQuit(DisconnectEvent event) {
-
+        UUID uuid = event.getPlayer().getUniqueId();
+        hasOpenWindow.remove(uuid);
+        windowSetup.remove(uuid);
+        windowIds.remove(uuid);
     }
 }
