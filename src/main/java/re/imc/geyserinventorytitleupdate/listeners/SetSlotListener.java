@@ -33,7 +33,6 @@ public class SetSlotListener extends AbstractPacketListener<SetSlot> {
                 GeyserInventoryTitleUpdate.getServer()
                         .getScheduler()
                         .buildTask(GeyserInventoryTitleUpdate.getInstance(), () -> {
-                            System.out.println("set item");
                             event.player().sendPacket(event.packet());
                         })
                         .delay(20, TimeUnit.MILLISECONDS)

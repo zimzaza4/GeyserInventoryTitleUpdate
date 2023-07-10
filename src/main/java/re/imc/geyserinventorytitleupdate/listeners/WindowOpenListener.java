@@ -25,8 +25,6 @@ public class WindowOpenListener extends AbstractPacketListener<OpenWindow>{
             return;
         }
 
-        System.out.println("received");
-
         if (FloodgateApi.getInstance().isFloodgatePlayer(event.player().uniqueId())
                 && GeyserInventoryTitleUpdate.hasOpenWindow.contains(event.player().uniqueId())) {
 
@@ -51,7 +49,7 @@ public class WindowOpenListener extends AbstractPacketListener<OpenWindow>{
             GeyserInventoryTitleUpdate.windowIds.put(event.player().uniqueId(), event.packet().windowId());
 
         } else {
-            System.out.println("first");
+
             GeyserInventoryTitleUpdate.hasOpenWindow.add(event.player().uniqueId());
             GeyserInventoryTitleUpdate.windowIds.put(event.player().uniqueId(), event.packet().windowId());
 

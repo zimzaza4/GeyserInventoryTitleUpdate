@@ -34,7 +34,6 @@ public class WindowItemsListener extends AbstractPacketListener<WindowItems> {
                                 GeyserInventoryTitleUpdate.getServer()
                                         .getScheduler()
                                         .buildTask(GeyserInventoryTitleUpdate.getInstance(), () -> {
-                                                System.out.println("setup items");
                                                 event.player().sendPacket(event.packet());
                                         })
                                         .delay(20, TimeUnit.MILLISECONDS)
