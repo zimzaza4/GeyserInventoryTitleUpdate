@@ -9,13 +9,12 @@ import dev.simplix.protocolize.data.packets.OpenWindow;
 import org.geysermc.floodgate.api.FloodgateApi;
 import re.imc.geyserinventorytitleupdate.GeyserInventoryTitleUpdate;
 
-import java.time.Duration;
 import java.util.concurrent.TimeUnit;
 
-public class DownstreamWindowOpenListener extends AbstractPacketListener<OpenWindow>{
+public class WindowOpenListener extends AbstractPacketListener<OpenWindow>{
 
 
-    public DownstreamWindowOpenListener() {
+    public WindowOpenListener() {
         super(OpenWindow.class, Direction.DOWNSTREAM, 0);
     }
 
@@ -38,11 +37,13 @@ public class DownstreamWindowOpenListener extends AbstractPacketListener<OpenWin
 
                 event.player().sendPacket(new CloseWindow(GeyserInventoryTitleUpdate.windowIds.get(event.player().uniqueId())));
 
+                GeyserInventoryTitleUpdate.windowSetup.add(event.player().uniqueId());
                 GeyserInventoryTitleUpdate.getServer()
                         .getScheduler()
                         .buildTask(GeyserInventoryTitleUpdate.getInstance(), () -> {
                             System.out.println("send");
                             event.player().sendPacket(event.packet());
+                            GeyserInventoryTitleUpdate.windowSetup.remove(event.player().uniqueId());
                         })
                         .delay(10, TimeUnit.MILLISECONDS)
                         .schedule();

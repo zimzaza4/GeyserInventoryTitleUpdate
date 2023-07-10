@@ -14,7 +14,7 @@ import java.util.concurrent.TimeUnit;
 
 public class WindowItemsListener extends AbstractPacketListener<WindowItems> {
         public WindowItemsListener() {
-                super(WindowItems.class, Direction.DOWNSTREAM, 60);
+                super(WindowItems.class, Direction.DOWNSTREAM, 0);
         }
 
         @Override
@@ -28,12 +28,13 @@ public class WindowItemsListener extends AbstractPacketListener<WindowItems> {
                         && GeyserInventoryTitleUpdate.hasOpenWindow.contains(event.player().uniqueId())) {
 
 
-                        if (GeyserInventoryTitleUpdate.windowIds.containsKey(event.player().uniqueId())) {
+                        if (GeyserInventoryTitleUpdate.windowIds.containsKey(event.player().uniqueId()) && GeyserInventoryTitleUpdate.windowSetup.contains(event.player().uniqueId())) {
                                 event.cancelled(true);
 
                                 GeyserInventoryTitleUpdate.getServer()
                                         .getScheduler()
                                         .buildTask(GeyserInventoryTitleUpdate.getInstance(), () -> {
+                                                System.out.println("setup items");
                                                 event.player().sendPacket(event.packet());
                                         })
                                         .delay(20, TimeUnit.MILLISECONDS)
