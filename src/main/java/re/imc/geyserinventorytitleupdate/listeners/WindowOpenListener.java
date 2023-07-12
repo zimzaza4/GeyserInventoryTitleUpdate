@@ -43,7 +43,7 @@ public class WindowOpenListener extends AbstractPacketListener<OpenWindow>{
                             event.player().sendPacket(event.packet());
                             GeyserInventoryTitleUpdate.windowSetup.remove(event.player().uniqueId());
                         })
-                        .delay(10, TimeUnit.MILLISECONDS)
+                        .delay(2, TimeUnit.MILLISECONDS)
                         .schedule();
             }
             GeyserInventoryTitleUpdate.windowIds.put(event.player().uniqueId(), event.packet().windowId());
