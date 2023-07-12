@@ -22,6 +22,7 @@ import java.util.Map;
 import java.util.Set;
 import java.util.UUID;
 import java.util.concurrent.ConcurrentHashMap;
+import java.util.concurrent.ConcurrentSkipListSet;
 
 @Plugin(
         id = "geyserinventorytitleupdate",
@@ -33,7 +34,7 @@ public class GeyserInventoryTitleUpdate {
 
     public static Set<UUID> hasOpenWindow = new HashSet<>();
     public static Map<UUID, Integer> windowIds = new ConcurrentHashMap<>();
-    public static Set<UUID> windowSetup = new HashSet<>();
+    public static Set<UUID> windowSetup = new ConcurrentSkipListSet<>();
 
 
     @Getter

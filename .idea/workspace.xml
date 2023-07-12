@@ -6,6 +6,11 @@
   <component name="ChangeListManager">
     <list default="true" id="d7d42ecd-0306-4dd0-9a1f-9937c037018a" name="更改" comment="ummm">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/re/imc/geyserinventorytitleupdate/GeyserInventoryTitleUpdate.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/re/imc/geyserinventorytitleupdate/GeyserInventoryTitleUpdate.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/re/imc/geyserinventorytitleupdate/listeners/SetSlotListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/re/imc/geyserinventorytitleupdate/listeners/SetSlotListener.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/re/imc/geyserinventorytitleupdate/listeners/WindowCloseListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/re/imc/geyserinventorytitleupdate/listeners/WindowCloseListener.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/re/imc/geyserinventorytitleupdate/listeners/WindowItemsListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/re/imc/geyserinventorytitleupdate/listeners/WindowItemsListener.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/re/imc/geyserinventorytitleupdate/listeners/WindowOpenListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/re/imc/geyserinventorytitleupdate/listeners/WindowOpenListener.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -21,6 +26,9 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
   </component>
   <component name="MavenImportPreferences">
     <option name="generalSettings">
@@ -100,7 +108,14 @@
       <option name="project" value="LOCAL" />
       <updated>1688972618406</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="ummm">
+      <created>1689133507952</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1689133507952</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">

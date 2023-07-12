@@ -29,13 +29,14 @@ public class SetSlotListener extends AbstractPacketListener<SetSlot> {
 
             if (GeyserInventoryTitleUpdate.windowIds.containsKey(event.player().uniqueId()) && GeyserInventoryTitleUpdate.windowSetup.contains(event.player().uniqueId())) {
                 event.cancelled(true);
-
+                
                 GeyserInventoryTitleUpdate.getServer()
                         .getScheduler()
                         .buildTask(GeyserInventoryTitleUpdate.getInstance(), () -> {
+                            
                             event.player().sendPacket(event.packet());
                         })
-                        .delay(4, TimeUnit.MILLISECONDS)
+                        .delay(30, TimeUnit.MILLISECONDS)
                         .schedule();
             }
 

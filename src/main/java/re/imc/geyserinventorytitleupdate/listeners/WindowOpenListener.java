@@ -11,7 +11,7 @@ import re.imc.geyserinventorytitleupdate.GeyserInventoryTitleUpdate;
 
 import java.util.concurrent.TimeUnit;
 
-public class WindowOpenListener extends AbstractPacketListener<OpenWindow>{
+public class WindowOpenListener extends AbstractPacketListener<OpenWindow> {
 
 
     public WindowOpenListener() {
@@ -35,15 +35,25 @@ public class WindowOpenListener extends AbstractPacketListener<OpenWindow>{
 
                 event.player().sendPacket(new CloseWindow(GeyserInventoryTitleUpdate.windowIds.get(event.player().uniqueId())));
 
+                
                 GeyserInventoryTitleUpdate.windowSetup.add(event.player().uniqueId());
                 GeyserInventoryTitleUpdate.getServer()
                         .getScheduler()
                         .buildTask(GeyserInventoryTitleUpdate.getInstance(), () -> {
-                            System.out.println("send");
+
+                            GeyserInventoryTitleUpdate.hasOpenWindow.add(event.player().uniqueId());
+                            
                             event.player().sendPacket(event.packet());
-                            GeyserInventoryTitleUpdate.windowSetup.remove(event.player().uniqueId());
+                            GeyserInventoryTitleUpdate.getServer()
+                                    .getScheduler()
+                                    .buildTask(GeyserInventoryTitleUpdate.getInstance(), () -> {
+                                        
+                                        GeyserInventoryTitleUpdate.windowSetup.remove(event.player().uniqueId());
+                                    })
+                                    .delay(20, TimeUnit.MILLISECONDS)
+                                    .schedule();
                         })
-                        .delay(2, TimeUnit.MILLISECONDS)
+                        .delay(5, TimeUnit.MILLISECONDS)
                         .schedule();
             }
             GeyserInventoryTitleUpdate.windowIds.put(event.player().uniqueId(), event.packet().windowId());

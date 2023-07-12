@@ -16,6 +16,8 @@ public class WindowCloseListener extends AbstractPacketListener<CloseWindow> {
     public void packetReceive(PacketReceiveEvent<CloseWindow> packetReceiveEvent) {
         if (packetReceiveEvent.player() != null) {
             GeyserInventoryTitleUpdate.hasOpenWindow.add(packetReceiveEvent.player().uniqueId());
+            // GeyserInventoryTitleUpdate.windowSetup.remove(packetReceiveEvent.player().uniqueId());
+            
         }
     }
 
@@ -23,7 +25,9 @@ public class WindowCloseListener extends AbstractPacketListener<CloseWindow> {
     public void packetSend(PacketSendEvent<CloseWindow> packetSendEvent) {
         if (packetSendEvent.player() != null) {
 
+            
             GeyserInventoryTitleUpdate.hasOpenWindow.add(packetSendEvent.player().uniqueId());
+            // GeyserInventoryTitleUpdate.windowSetup.remove(packetSendEvent.player().uniqueId());
         }
     }
 }
