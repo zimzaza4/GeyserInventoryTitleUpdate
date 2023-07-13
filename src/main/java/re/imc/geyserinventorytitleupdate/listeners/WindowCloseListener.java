@@ -25,6 +25,13 @@ public class WindowCloseListener extends AbstractPacketListener<CloseWindow> {
     public void packetSend(PacketSendEvent<CloseWindow> packetSendEvent) {
         if (packetSendEvent.player() != null) {
 
+            if (GeyserInventoryTitleUpdate.windowSetup.contains(packetSendEvent.player().uniqueId())) {
+                
+                packetSendEvent.cancelled(true);
+                return;
+            }
+
+
             
             GeyserInventoryTitleUpdate.hasOpenWindow.add(packetSendEvent.player().uniqueId());
             // GeyserInventoryTitleUpdate.windowSetup.remove(packetSendEvent.player().uniqueId());

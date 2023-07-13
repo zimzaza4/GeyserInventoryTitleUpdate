@@ -9,12 +9,10 @@ import com.velocitypowered.api.plugin.Plugin;
 import com.velocitypowered.api.plugin.annotation.DataDirectory;
 import com.velocitypowered.api.proxy.ProxyServer;
 import dev.simplix.protocolize.api.Protocolize;
+import dev.simplix.protocolize.data.inventory.InventoryType;
 import lombok.Getter;
 import org.slf4j.Logger;
-import re.imc.geyserinventorytitleupdate.listeners.WindowOpenListener;
-import re.imc.geyserinventorytitleupdate.listeners.SetSlotListener;
-import re.imc.geyserinventorytitleupdate.listeners.WindowCloseListener;
-import re.imc.geyserinventorytitleupdate.listeners.WindowItemsListener;
+import re.imc.geyserinventorytitleupdate.listeners.*;
 
 import java.nio.file.Path;
 import java.util.HashSet;
@@ -34,6 +32,10 @@ public class GeyserInventoryTitleUpdate {
 
     public static Set<UUID> hasOpenWindow = new HashSet<>();
     public static Map<UUID, Integer> windowIds = new ConcurrentHashMap<>();
+    public static Map<UUID, InventoryType> windowTypes = new ConcurrentHashMap<>();;
+
+    public static Map<UUID, String> windowTitles = new ConcurrentHashMap<>();;
+
     public static Set<UUID> windowSetup = new ConcurrentSkipListSet<>();
 
 
@@ -55,6 +57,7 @@ public class GeyserInventoryTitleUpdate {
         Protocolize.listenerProvider().registerListener(new WindowCloseListener());
         Protocolize.listenerProvider().registerListener(new WindowItemsListener());
         Protocolize.listenerProvider().registerListener(new SetSlotListener());
+        Protocolize.listenerProvider().registerListener(new ConfirmTransactionListener());
     }
     @Subscribe
     public void onQuit(DisconnectEvent event) {
